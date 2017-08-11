@@ -1,0 +1,25 @@
+version: '2.1'
+
+services:
+  azurecontainerinstances.jobgenerator:
+    image: azurecontainerinstances.jobgenerator:dev
+    build:
+      args:
+        source: ${DOCKER_BUILD_SOURCE}
+    volumes:
+      - .\AzureContainerInstances.JobGenerator:C:\inetpub\wwwroot
+      - ~\msvsmon:C:\msvsmon:ro
+    labels:
+      - "com.microsoft.visualstudio.targetoperatingsystem=windows"
+
+  azurecontainerinstances.jobprocessing:
+    image: azurecontainerinstances.jobprocessing:dev
+    build:
+      args:
+        source: ${DOCKER_BUILD_SOURCE}
+    volumes:
+      - .\AzureContainerInstances.JobProcessing:C:\app
+      - ~\msvsmon:C:\msvsmon:ro
+    entrypoint: powershell -Command [System.Threading.Thread]::Sleep([System.Threading.Timeout]::Infinite)
+    labels:
+      - "com.microsoft.visualstudio.targetoperatingsystem=windows"

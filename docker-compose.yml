@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  azurecontainerinstances.jobgenerator:
+    image: azurecontainerinstances.jobgenerator
+    build:
+      context: .\AzureContainerInstances.JobGenerator
+      dockerfile: Dockerfile
+
+  azurecontainerinstances.jobprocessing:
+    image: azurecontainerinstances.jobprocessing
+    build:
+      context: .\AzureContainerInstances.JobProcessing
+      dockerfile: Dockerfile
