@@ -5,25 +5,27 @@ using Microsoft.ServiceBus.Messaging;
 
 namespace AzureContainerInstances.JobProcessing
 {
-	class Program
+	internal static class Program
 	{
 		private const string MicrosoftServicebusConnectionStringSettingName = "Microsoft.ServiceBus.ConnectionString";
 		private const string QueueName = "TestQueue";
 		private static readonly int ProcessId = System.Diagnostics.Process.GetCurrentProcess().Id;
 		private static string _connectionStringForReading;
 
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
-			_connectionStringForReading = args[0];
+			if (args != null && args.Length > 0)
+			{
+				_connectionStringForReading = args[0];
+			}
+			if (string.IsNullOrWhiteSpace(_connectionStringForReading))
+			{
+				_connectionStringForReading = Environment.GetEnvironmentVariable(MicrosoftServicebusConnectionStringSettingName);
+			}
 			if (string.IsNullOrWhiteSpace(_connectionStringForReading))
 			{
 				_connectionStringForReading = ConfigurationManager.AppSettings[MicrosoftServicebusConnectionStringSettingName];
 			}
-			if (string.IsNullOrWhiteSpace(_connectionStringForReading))
-			{
-				_connectionStringForReading = Environment.GetEnvironmentVariable(MicrosoftServicebusConnectionStringSettingName, EnvironmentVariableTarget.Process);
-			}
-
 			try
 			{
 				if (string.IsNullOrWhiteSpace(_connectionStringForReading))

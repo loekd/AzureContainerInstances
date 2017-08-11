@@ -15,7 +15,7 @@ namespace AzureContainerInstances.JobGenerator.Controllers
 
 		public JobController()
 		{
-			_connectionStringForWriting = Environment.GetEnvironmentVariable(MicrosoftServicebusConnectionStringSettingName, EnvironmentVariableTarget.Process);
+			_connectionStringForWriting = Environment.GetEnvironmentVariable(MicrosoftServicebusConnectionStringSettingName);
 			if (string.IsNullOrWhiteSpace(_connectionStringForWriting))
 			{
 				_connectionStringForWriting = ConfigurationManager.AppSettings[MicrosoftServicebusConnectionStringSettingName];

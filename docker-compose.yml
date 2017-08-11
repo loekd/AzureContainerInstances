@@ -3,12 +3,16 @@ version: '2.1'
 services:
   azurecontainerinstances.jobgenerator:
     image: azurecontainerinstances.jobgenerator
+     environment:
+      - Microsoft.ServiceBus.ConnectionString
     build:
       context: .\AzureContainerInstances.JobGenerator
       dockerfile: Dockerfile
 
   azurecontainerinstances.jobprocessing:
     image: azurecontainerinstances.jobprocessing
+    environment:
+      - Microsoft.ServiceBus.ConnectionString
     build:
       context: .\AzureContainerInstances.JobProcessing
       dockerfile: Dockerfile

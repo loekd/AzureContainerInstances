@@ -13,7 +13,7 @@ services:
       - "com.microsoft.visualstudio.targetoperatingsystem=windows"
 
   azurecontainerinstances.jobprocessing:
-    image: azurecontainerinstances.jobprocessing:dev
+    image: azurecontainerinstances.jobprocessing:dev    
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
