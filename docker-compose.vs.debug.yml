@@ -23,3 +23,14 @@ services:
     entrypoint: powershell -Command [System.Threading.Thread]::Sleep([System.Threading.Timeout]::Infinite)
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=windows"
+
+  azurecontainerinstances.logging:
+    image: azurecontainerinstances.logging:dev
+    build:
+      args:
+        source: ${DOCKER_BUILD_SOURCE}
+    volumes:
+      - .\AzureContainerInstances.Logging:C:\inetpub\wwwroot
+      - ~\msvsmon:C:\msvsmon:ro
+    labels:
+      - "com.microsoft.visualstudio.targetoperatingsystem=windows"

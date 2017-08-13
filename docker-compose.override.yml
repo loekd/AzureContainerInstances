@@ -4,6 +4,10 @@ services:
   azurecontainerinstances.jobgenerator:
     ports:
       - "80"
+
+  azurecontainerinstances.logging:
+    ports:
+      - "80"
 networks:
   default:
     external:
