@@ -2,7 +2,7 @@
 
 Demo for Azure Container Instances with multiple containers cooperating
 
-## Web Server
+## Web Server `JobGenerator`
 ASP.NET MVC Web API project that enqueues work. 
 
 ## Job Processing
