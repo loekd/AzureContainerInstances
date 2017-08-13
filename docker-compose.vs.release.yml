@@ -5,8 +5,8 @@ services:
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
-    volumes:
-      - ~\msvsmon:C:\msvsmon:ro
+    #volumes:
+    #  - ~\msvsmon:C:\msvsmon:ro
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=windows"
 
@@ -14,8 +14,8 @@ services:
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
-    volumes:
-      - ~\msvsmon:C:\msvsmon:ro
+    #volumes:
+    #  - ~\msvsmon:C:\msvsmon:ro
     entrypoint: powershell -Command [System.Threading.Thread]::Sleep([System.Threading.Timeout]::Infinite)
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=windows"
@@ -24,7 +24,7 @@ services:
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
-    volumes:
-      - ~\msvsmon:C:\msvsmon:ro
+    #volumes:
+    #  - ~\msvsmon:C:\msvsmon:ro
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=windows"

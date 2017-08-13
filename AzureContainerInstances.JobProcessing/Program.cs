@@ -12,26 +12,17 @@ namespace AzureContainerInstances.JobProcessing
 		private static readonly int ProcessId = System.Diagnostics.Process.GetCurrentProcess().Id;
 		private static string _connectionStringForReading;
 
-		private static void Main(string[] args)
+		private static void Main()
 		{
-			if (args != null && args.Length > 0)
-			{
-				_connectionStringForReading = args[0];
-			}
-			if (string.IsNullOrWhiteSpace(_connectionStringForReading))
-			{
-				_connectionStringForReading = Environment.GetEnvironmentVariable(MicrosoftServicebusConnectionStringSettingName);
-			}
-			if (string.IsNullOrWhiteSpace(_connectionStringForReading))
-			{
-				_connectionStringForReading = ConfigurationManager.AppSettings[MicrosoftServicebusConnectionStringSettingName];
-			}
+			_connectionStringForReading = Environment.GetEnvironmentVariable(MicrosoftServicebusConnectionStringSettingName);
+			
 			try
 			{
 				if (string.IsNullOrWhiteSpace(_connectionStringForReading))
 				{
-					throw new ConfigurationErrorsException($"Provide an Commandline argument, AppSetting or Environment Variable named '{MicrosoftServicebusConnectionStringSettingName}' that holds a connection string that has read access to your Azure Service Bus.");
+					throw new ConfigurationErrorsException($"Provide an Environment Variable named '{MicrosoftServicebusConnectionStringSettingName}' that holds a connection string that has read access to your Azure Service Bus.");
 				}
+				LogMessage($"Connection string:{_connectionStringForReading}");
 				LogMessage("Job Processing is starting.");
 				EnsureQueueExists();
 				ProcessQueueMessages();

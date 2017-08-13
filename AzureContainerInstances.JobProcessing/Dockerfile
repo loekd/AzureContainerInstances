@@ -1,5 +1,5 @@
 FROM microsoft/windowsservercore
 ARG source
-WORKDIR /app
+#WORKDIR /app
 COPY ${source:-obj/Docker/publish} .
-ENTRYPOINT ["C:\app\AzureContainerInstances.JobProcessing.exe"]
+ENTRYPOINT AzureContainerInstances.JobProcessing.exe
