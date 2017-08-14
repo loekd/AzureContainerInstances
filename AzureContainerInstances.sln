@@ -11,6 +11,15 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureContainerInstances.Logging", "AzureContainerInstances.Logging\AzureContainerInstances.Logging.csproj", "{35216C34-64D3-490A-9D51-24632E9233F1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2FE7980C-3D01-445E-8773-A93B61593249}"
+	ProjectSection(SolutionItems) = preProject
+		azuredeploy.json = azuredeploy.json
+		azuredeploy.parameters.json = azuredeploy.parameters.json
+		build-containers.bat = build-containers.bat
+		deploy.bat = deploy.bat
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
