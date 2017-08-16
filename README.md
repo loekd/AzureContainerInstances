@@ -1,12 +1,12 @@
 # AzureContainerInstances
 
-Demo for Azure Container Instances with multiple containers cooperating
+Demo for Azure Container Instances with multiple containers cooperating.
 
-## Web Server `JobGenerator`
-ASP.NET MVC Web API project that enqueues work. 
+** At this time, it's not possible to run multiple Windows containers in one group. **.
+Hopefully it will be, in the future.
 
-## Job Processing `JobProcessing`
-.NET Console project that dequeues work and 'processes' it. 
+While we wait, please go to [AzureContainerInstancesLinux](https://github.com/loekd/AzureContainerInstancesLinux) to see how it works on Linux.
 
-## Web Server `Logging`
-ASP.NET MVC Web API project collects logging information. 
+
+
+  
